@@ -1,0 +1,436 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+html, body {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 0;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+}
+
+h1 {
+	font-size: 3.5em;
+	font-weight: 900;
+	color: #C80F2E;
+}
+
+h2 {
+	font-weight: 700;
+	font-size: 2em;
+	color: #1D4289;
+}
+
+p {
+	color: #444;
+	line-height: 1.5em;
+}
+
+.menu1 img {
+	width: 50px;
+}
+
+.menu1 {
+	display: flex;
+	width: 100%;
+	height: 100px;
+	position: fixed;
+	left: 0;
+	justify-content: flex-start;
+	align-items: center;
+	top: calc(50vh - 50px);
+	z-index: 2;
+	background-color: rgba(200, 15, 46, .8);
+	padding-left: 100px;
+}
+
+nav a {
+	text-decoration: none;
+	text-align: center;
+	color: rgba(29, 66, 137, 0.7);
+	font-size: 1.2em;
+	font-weight: 700;
+	margin: 0 10px;
+	padding: 10px 20px;
+	position: relative;
+	transition: all .3s;
+}
+
+nav a:hover {
+	color: white;
+}
+
+nav a::before, nav a::after {
+	position: absolute;
+	opacity: 0;
+	color: white;
+	font-size: 1.5em;
+	top: 4px;
+	transition: all .3s;
+}
+
+nav a:hover::before, nav a:hover::after {
+	opacity: 1;
+	transform: translateX(0px);
+}
+
+nav a::before {
+	content: "(";
+	left: 0;
+	transform: translateX(-10px);
+}
+
+nav a::after {
+	content: ")";
+	right: 0;
+	transform: translateX(10px);
+
+}
+
+section {
+	padding-left: 100px;
+	height: 100vh;
+	width: 100%;
+	display: grid;
+	grid-template: repeat(2, 1fr) / 100%;
+	row-gap: 100px;
+	align-items: center;
+	position: fixed;
+	background-color: white;
+}
+
+#uno::before {
+	content:"";
+	height: 100vh; 
+	width: 100vw;
+	position: absolute;
+	background: url("../img/fondo-01.jpg") no-repeat top center / cover;
+	opacity: 0.2;
+	z-index: -1;
+}
+
+#uno img{
+	width: 30vh;
+}
+
+#dos::before {
+	content:"";
+	height: 100vh; 
+	width: 100vw;
+	position: absolute;
+	background: url("../img/fondo-02.jpg") no-repeat center center / cover;
+	opacity: 0.2;
+	z-index: -1;
+}
+
+#dos img{
+	width: 40%;
+	margin: 20px 0;
+	padding: 10px;
+	background-color: white;
+	box-shadow: 1px 1px 5px black;
+}
+
+#tres::before {
+	content:"";
+	height: 100vh; 
+	width: 100vw;
+	position: absolute;
+	background: url("../img/fondo-03.jpg") no-repeat center center / cover;
+	opacity: 0.2;
+	z-index: -1;
+}
+
+#tres div:last-child {
+	display: grid;
+	grid-template: auto 20px / repeat(3, 200px);
+	height: 40vh;
+	column-gap: 40px;
+	align-content: center;
+}
+
+#tres div:last-child img {
+	padding: 10px;
+	border: 3px dashed #C80F2E;
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+	filter: grayscale(100%);
+	transition: all 0.5s;
+}
+
+#tres div:last-child p {
+	font-size: 1.2em;
+	font-weight: 700;
+	color: #1D4289;
+	margin-top: 5px;
+}
+
+#tres div:last-child a:hover img {
+	filter: grayscale(0);
+}
+
+.info {
+	width: 80%;
+	max-width: 1000px;
+}
+
+.info a {
+	color: #1D4289;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.info a:hover {
+	color: #C80F2E;
+}
+
+
+#uno div:last-child {
+	grid-row: 3 / 4;
+}
+
+#uno, #dos:target, #tres:target {
+	z-index: 1;
+}
+
+
+/*PAGINAS SECUNDARIAS*/
+
+#bird {
+	display: grid;
+	grid-template: 75px auto / repeat(2, 1fr);
+	width: 100vh;
+	align-items: start;
+	align-content: center;
+	gap: 40px;
+	position: relative;
+	z-index: 1;
+}
+
+#bird::before {
+	content:"";
+	height: 100vh; 
+	width: 100vw;
+	position: absolute;
+	background: url("../img/bird-02.jpeg") no-repeat center top / cover;
+	opacity: 0.17;
+	z-index: 0;
+}
+
+#bird h1 {
+	grid-column: span 2;
+}
+
+#bird img {
+	padding: 10px;
+	border: 1px dashed red;
+}
+
+#bird .info {
+	width: 100%;
+}
+
+
+/*MENU HAMBURGUESA*/
+header.menu2 {
+	position: fixed;
+	z-index: 2;
+	width: 100%;
+	height: 130px;
+} 
+
+.abrir {
+	display: block;
+	appearance: none;
+	-webkit-appearance: none;
+    background-color: transparent;
+	border: 1px solid #C80F2E;
+	border-radius: 5px;
+	width: 30px;
+	height: 30px;
+	padding: 5px;
+	cursor: pointer;
+	position: absolute;
+	top: 100px;
+	left: 100px;
+}
+
+.abrir:hover {
+	background-color: #C80F2E;
+}
+
+.abrir span {
+	display: block;
+	height: 2px;
+	width: 80%;
+	text-align: center;
+	background-color: #C80F2E;
+	margin: 3px auto;
+}
+
+.abrir:hover span {
+	background-color: white;
+}
+
+.hamb {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background-color: #1D4289;
+	flex-direction: column;
+	opacity: 0.8;
+	display: none;
+}
+
+.hamb ul {
+	display: block;
+	text-align: center;
+}
+
+.hamb li:not(:first-child) {
+	margin-top: 40px;
+}
+
+.hamb a {
+	color: rgba(255, 255, 255, 0.7);
+	font-size: 3em;
+	padding: 20px 40px;
+	transition: all .3s;
+}
+
+.cerrar {
+	display: block;
+	appearance: none;
+	-webkit-appearance: none;
+	border: none;
+	background-color: transparent;
+	color: rgba(255, 255, 255, 0.7);
+	font-size: 2em;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+
+.cerrar:hover {
+	color: white;
+}
+
+.desplegado {
+	display: flex;
+}
+
+.blur {
+	filter: blur(4px);
+}
+
+
+@media screen and (max-width: 900px) {
+	#tres div:last-child {
+		display: grid;
+		grid-template: auto 20px / repeat(3, 30%);
+		height: 40vh;
+		column-gap: 40px;
+		align-content: center;
+		align-items: start;
+	}	
+
+	#tres div:last-child img {
+		width: 80%;
+		height: 80%;
+	}
+
+	#tres div:last-child p {
+		font-size: 1.2em;
+	}
+}
+
+
+@media screen and (max-width: 1200px) {
+	#bird {
+		display: block;
+		height: 100vh;
+		padding-top: 200px;
+		padding-left: 0;
+		position: static;
+		background-color: transparent;
+	}
+	#bird::before {
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+
+	#bird *:not(p,a){
+		margin-left: 100px;
+	}
+
+	#bird .info {
+		width: 60%;
+		margin-top: 40px;
+	}
+
+	#bird img {
+		margin-top: 40px;
+		width: 60%;
+		margin-bottom: 40px;
+		max-width: 550px;
+	}
+
+	.abrir {
+		left: calc(100% - 142px);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
